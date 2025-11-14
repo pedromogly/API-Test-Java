@@ -1,4 +1,4 @@
-package com.study.spring_study.Services;
+package com.study.spring_study.Services.Models;
 
 public class JsonExample {
     public String playerNick;
@@ -7,8 +7,6 @@ public class JsonExample {
         this.playerNick = player;
         this.positions = positions; 
     }
-
-    public JsonExample process(JsonExample input) {
-        return new JsonExample(input.playerNick, input.positions);
-    }
 }
+
+

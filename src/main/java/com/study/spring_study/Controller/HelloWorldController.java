@@ -8,18 +8,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.study.spring_study.Services.JsonExample;
+import com.study.spring_study.Services.JsonService;
 import com.study.spring_study.Services.PagamentoFactory;
+import com.study.spring_study.Services.Models.JsonExample;
 
 @RestController
 //Ou @Controller + @ResponseBody
 @RequestMapping
 public class HelloWorldController {
     private final PagamentoFactory pagamentoService;
-    private final JsonExample jsonex;
-    public HelloWorldController(PagamentoFactory pagamento,JsonExample json){
+    private final JsonService jsonService;
+    public HelloWorldController(PagamentoFactory pagamento, JsonService jsonService){
         this.pagamentoService = pagamento;
-        this.jsonex = json;
+        this.jsonService = jsonService;
     }
 
     @GetMapping("/pagar")
@@ -55,7 +56,7 @@ public class HelloWorldController {
 
     @PostMapping("/body")
     public JsonExample exibir(@RequestBody JsonExample json) {
-        return jsonex.process(json);
+        return jsonService.process(json);
     }
 }
 
